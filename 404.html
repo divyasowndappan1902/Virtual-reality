@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRportal - 404 Not Found</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .float-text {
+            animation: floatText 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatText {
+            0% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4)); }
+            50% { transform: translateY(-15px) scale(1.02); filter: drop-shadow(0 0 30px rgba(195, 0, 255, 0.6)); }
+            100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4)); }
+        }
+
+        .btn-pulse {
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { box-shadow: 0 0 0 0 rgba(195, 0, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(195, 0, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(195, 0, 255, 0); }
+        }
+    </style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="login-card fade-in-up" style="text-align: center; padding: 4rem 3rem;">
+        <h1 class="float-text" style="font-size: 6rem; background: -webkit-linear-gradient(var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; font-weight: 800;">404</h1>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Page Not Found</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6;">Oops! It looks like you've wandered into an uncharted virtual space. The page you are looking for does not exist or is under construction.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="javascript:history.back()" class="btn btn-outline" style="display: inline-block; width: auto; padding: 1rem 2rem;"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+            <a href="index.html" class="btn btn-submit btn-pulse" style="display: inline-block; width: auto; padding: 1rem 2rem;">Return to Home</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

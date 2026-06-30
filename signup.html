@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRportal - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="login-page">
+
+    
+    <div class="login-card" style="padding: 3rem 2.5rem;">
+        <div class="login-header" style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="font-size: 2.2rem; color: #ffffff; background: none; -webkit-text-fill-color: initial; margin-bottom: 0.5rem;">Create Account</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Please fill in the details below to sign up.</p>
+        </div>
+
+        <div class="social-login" style="margin-bottom: 1.5rem; gap: 1rem;">
+            <button type="button" class="btn-social" style="border-radius: 8px; padding: 0.8rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--text-light);" onclick="window.location.href='404.html'"><i class="fa-brands fa-google" style="color: #DB4437; font-size: 1.1rem; margin-right: 8px;"></i> Google</button>
+            <button type="button" class="btn-social" style="border-radius: 8px; padding: 0.8rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--text-light);" onclick="window.location.href='404.html'"><i class="fa-brands fa-facebook" style="color: #ffffff; font-size: 1.1rem; margin-right: 8px;"></i> Facebook</button>
+        </div>
+
+        <div class="login-divider" style="margin: 2rem 0; color: var(--text-muted); font-size: 0.9rem;">or continue with email</div>
+
+        <div id="error-message" style="display: none; color: #ff4d4d; text-align: center; margin-bottom: 1rem; font-weight: 600; background: rgba(255, 77, 77, 0.1); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255, 77, 77, 0.3);">
+            Invalid
+        </div>
+
+        <form id="auth-form" action="login.html">
+            <div class="role-selector" style="border-radius: 10px; padding: 4px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);">
+                <input type="radio" name="role" id="role-admin" value="admin" checked>
+                <label for="role-admin" style="border-radius: 8px;">Admin</label>
+                <input type="radio" name="role" id="role-customer" value="customer">
+                <label for="role-customer" style="border-radius: 8px;">Customer</label>
+                <div class="slider" style="border-radius: 8px; width: calc(50% - 4px); background: linear-gradient(90deg, var(--secondary), var(--primary)); box-shadow: 0 4px 15px rgba(195, 0, 255, 0.3);"></div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+                <input type="text" class="form-control" placeholder="Full Name" required style="border-radius: 8px; padding: 1rem;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+                <input type="email" class="form-control" placeholder="Email address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address (e.g., example@gmail.com)" required style="border-radius: 8px; padding: 1rem;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+                <input type="password" class="form-control" placeholder="Password" required style="border-radius: 8px; padding: 1rem;">
+            </div>
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <input type="password" class="form-control" placeholder="Confirm Password" required style="border-radius: 8px; padding: 1rem;">
+            </div>
+
+            <button type="submit" class="btn btn-submit" style="background: linear-gradient(90deg, var(--secondary), var(--primary)); border: none; font-weight: 700; border-radius: 8px; color: white; box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4); padding: 1.2rem; cursor: pointer;">Sign Up</button>
+        </form>
+        
+        <p style="text-align: center; font-size: 0.95rem; color: var(--text-muted); margin-top: 2rem;">
+            Already have an account? <a href="login.html" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Log in</a>
+        </p>
+        
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <a href="index.html" style="color: var(--text-light); text-decoration: none; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 1px dashed rgba(255,255,255,0.5);"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('auth-form');
+            const errorMessage = document.getElementById('error-message');
+            const emailInput = form.querySelector('input[type="email"]');
+            const passwords = form.querySelectorAll('input[type="password"]');
+            const nameInput = form.querySelector('input[type="text"]');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                // Show 'Invalid' if name is empty, email is bad, password < 8, or passwords do not match
+                if (
+                    nameInput.value.trim() === '' ||
+                    !emailRegex.test(emailInput.value) || 
+                    passwords[0].value.length < 8 || 
+                    passwords[0].value !== passwords[1].value
+                ) {
+                    errorMessage.style.display = 'block';
+                } else {
+                    errorMessage.style.display = 'none';
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

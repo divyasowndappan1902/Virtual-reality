@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRportal - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="login-page">
+
+    
+    <div class="login-card">
+        <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 2rem;">
+            
+        </a>
+
+        <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p>Enter the portal to continue your journey.</p>
+        </div>
+
+
+
+        <form id="auth-form" action="customer_dashboard.html">
+            <div class="role-selector">
+                <input type="radio" name="role" id="role-customer" value="customer" checked>
+                <label for="role-customer" onclick="document.getElementById('auth-form').action='customer_dashboard.html'">Customer</label>
+                <input type="radio" name="role" id="role-admin" value="admin">
+                <label for="role-admin" onclick="document.getElementById('auth-form').action='admin_dashboard.html'">Admin</label>
+                <div class="slider"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address (e.g., example@gmail.com)" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <input type="password" class="form-control" placeholder="Password" required>
+            </div>
+            
+            <div class="login-options">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="404.html">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-submit">Sign In</button>
+        </form>
+
+        <div class="login-divider">Or continue with</div>
+
+        <div class="social-login">
+            <button type="button" class="btn-social" onclick="window.location.href='404.html'">Google</button>
+            <button type="button" class="btn-social" onclick="window.location.href='404.html'">Apple</button>
+        </div>
+        
+        <p style="text-align: center; font-size: 0.95rem; color: var(--text-muted); margin-top: 2rem;">
+            Don't have an account? <a href="signup.html" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Sign up</a>
+        </p>
+        
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <a href="index.html" style="color: var(--text-light); text-decoration: none; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 1px dashed rgba(255,255,255,0.5);"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+        // Form submits natively
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

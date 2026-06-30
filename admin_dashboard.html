@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-sidebar-header">
+                <a href="index.html" class="logo" style="margin-bottom: 2rem;">
+                    <img src="logo.webp" alt="STACKLY Logo" style="height: 40px; width: auto;">
+                </a>
+                <div class="hamburger dashboard-hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <nav class="dashboard-nav">
+                <ul>
+                    <li><a href="#" class="active" data-target="dashboard">📊 Dashboard</a></li>
+                    <li><a href="#" data-target="users">👥 Users</a></li>
+                    <li><a href="#" data-target="orders">📦 Orders</a></li>
+                    <li><a href="#" data-target="settings">⚙️ Settings</a></li>
+                    <li style="margin-top: auto;"><a href="login.html" style="color: #ff4d4d;">🚪 Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="dashboard-content">
+            <div class="dashboard-header">
+                <h2 id="dashboard-title">Admin Overview</h2>
+                <div class="author-img" style="width: 45px; height: 45px; border-radius: 50%; background: var(--secondary);"></div>
+            </div>
+            
+            <div id="dashboard" class="tab-content" style="display: block;">
+                <div class="dashboard-cards">
+                    <div class="stat-card accent-1">
+                        <h4>Total Users</h4>
+                        <div class="stat-value">12,450</div>
+                        <span style="color: #00f0ff; font-size: 0.85rem;">+14% this week</span>
+                    </div>
+                    <div class="stat-card accent-2">
+                        <h4>Revenue</h4>
+                        <div class="stat-value">$45,200</div>
+                        <span style="color: #ff007f; font-size: 0.85rem;">+8% this week</span>
+                    </div>
+                    <div class="stat-card accent-3">
+                        <h4>Active VR Sessions</h4>
+                        <div class="stat-value">1,204</div>
+                        <span style="color: #b300ff; font-size: 0.85rem;">Currently online</span>
+                    </div>
+                </div>
+                
+                <h3 style="margin-bottom: 1rem;">Recent Registrations</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alice Lee</td>
+                            <td>alice@example.com</td>
+                            <td>Customer</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>John Smith</td>
+                            <td>john.s@example.com</td>
+                            <td>Admin</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Michael Doe</td>
+                            <td>mike.d@example.com</td>
+                            <td>Customer</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">System Health</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(50, 255, 100, 0.2); background: linear-gradient(135deg, rgba(50,255,100,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 0.5rem;">Server Status</h4>
+                        <span style="color: #32ff64; font-size: 0.9rem;">All Systems Operational</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(0, 240, 255, 0.2); background: linear-gradient(135deg, rgba(0,240,255,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 0.5rem;">Database Load</h4>
+                        <span style="color: #00f0ff; font-size: 0.9rem;">24% Capacity</span>
+                     </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Top Selling Devices</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem;">Pro Headset X1</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">842 Units Sold</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem;">Haptic Gloves V2</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">450 Units Sold</span>
+                     </div>
+                </div>
+            </div>
+
+            <div id="users" class="tab-content" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">User Management</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Manage all registered users on the platform.</p>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <input type="text" class="form-control" placeholder="Search users by name or email..." style="flex: 1;">
+                        <button type="button" class="btn btn-submit" style="width: auto; padding: 0.8rem 2rem;" onclick="window.location.href='404.html'">Search</button>
+                    </div>
+                    <!-- Placeholder for full user table -->
+                    <div style="text-align: center; padding: 2rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 10px;">
+                        <i class="fa-solid fa-users" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+                        <p style="color: var(--text-muted);">User database connected. 12,450 records found.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">User Demographics</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem;">Geographic Distribution</h4>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">North America 45%, Europe 35%, Asia 20%</span>
+                     </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Recent Account Actions</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(255, 77, 77, 0.2); background: linear-gradient(135deg, rgba(255,77,77,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 0.5rem;">Banned Accounts</h4>
+                        <span style="color: #ff4d4d; font-size: 0.9rem;">12 accounts banned this week</span>
+                     </div>
+                </div>
+            </div>
+
+            <div id="orders" class="tab-content" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">Hardware Orders</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 2rem;">
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-muted);">Pending Orders</h4>
+                        <div class="stat-value" style="color: orange;">45</div>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-muted);">Shipped Today</h4>
+                        <div class="stat-value" style="color: var(--primary);">12</div>
+                     </div>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Item</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-8821</td>
+                            <td>Pro Headset X1</td>
+                            <td>Oct 10, 2026</td>
+                            <td><span class="status-badge status-shipped">Shipped</span></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-8822</td>
+                            <td>Haptic Gloves V2</td>
+                            <td>Oct 10, 2026</td>
+                            <td><span class="status-badge status-pending">Processing</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Shipping Logistics</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem;">Average Delivery Time</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">3.2 Days</span>
+                     </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Returns & Refunds</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem;">Pending Return Requests</h4>
+                        <span style="color: orange; font-size: 0.9rem;">5 Requests</span>
+                     </div>
+                </div>
+            </div>
+
+            <div id="settings" class="tab-content" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">Platform Settings</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; display: block;">Maintenance Mode</label>
+                        <select class="form-control" style="background: rgba(0,0,0,0.2);">
+                            <option>Disabled</option>
+                            <option>Enabled (Admins Only)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; display: block;">New Registrations</label>
+                        <select class="form-control" style="background: rgba(0,0,0,0.2);">
+                            <option>Open</option>
+                            <option>Invite Only</option>
+                            <option>Closed</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-submit" style="width: auto; padding: 0.8rem 2rem; border-radius: 30px;" onclick="window.location.href='404.html'">Save Configuration</button>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">API Keys & Integrations</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Payment Gateway API</h4>
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">Connected to Stripe Server</span>
+                        </div>
+                        <button type="button" class="btn" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;" onclick="window.location.href='404.html'">Revoke Key</button>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Security & Backup</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Database Backup</h4>
+                            <span style="color: #32ff64; font-size: 0.9rem;">Last backup: 2 hours ago</span>
+                        </div>
+                        <button type="button" class="btn" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;" onclick="window.location.href='404.html'">Force Backup</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.dashboard-nav a[data-target]');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const dashboardTitle = document.getElementById('dashboard-title');
+            
+            const titles = {
+                'dashboard': 'Admin Overview',
+                'users': 'User Management',
+                'orders': 'Hardware Orders',
+                'settings': 'Platform Settings'
+            };
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        
+                        // Update active nav
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Show target tab
+                        const targetId = this.getAttribute('data-target');
+                        tabContents.forEach(tab => {
+                            if (tab.id === targetId) {
+                                tab.style.display = 'block';
+                            } else {
+                                tab.style.display = 'none';
+                            }
+                        });
+                        
+                        // Update header title dynamically
+                        if (dashboardTitle && titles[targetId]) {
+                            dashboardTitle.textContent = titles[targetId];
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+    <script src="menu.js"></script>
+</body>
+</html>

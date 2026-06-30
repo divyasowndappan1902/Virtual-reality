@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Customer Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-sidebar-header">
+                <a href="index.html" class="logo" style="margin-bottom: 2rem;">
+                    <img src="logo.webp" alt="STACKLY Logo" style="height: 40px; width: auto;">
+                </a>
+                <div class="hamburger dashboard-hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <nav class="dashboard-nav">
+                <ul>
+                    <li><a href="#" class="active" data-target="overview">🏠 Overview</a></li>
+                    <li><a href="#" data-target="devices">🥽 My Devices</a></li>
+                    <li><a href="#" data-target="library">📚 VR Library</a></li>
+                    <li><a href="#" data-target="profile">👤 Profile</a></li>
+                    <li style="margin-top: auto;"><a href="login.html" style="color: #ff4d4d;">🚪 Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="dashboard-content">
+            <div class="dashboard-header">
+                <h2 id="dashboard-title">Welcome Back, Explorer</h2>
+                <div class="author-img" style="width: 45px; height: 45px; border-radius: 50%; background: var(--primary);"></div>
+            </div>
+            
+            <div id="overview" class="tab-content" style="display: block;">
+                <div class="dashboard-cards">
+                    <div class="stat-card accent-1">
+                        <h4>Hours in VR</h4>
+                        <div class="stat-value">142h</div>
+                        <span style="color: #00f0ff; font-size: 0.85rem;">Top 10% of players</span>
+                    </div>
+                    <div class="stat-card accent-2">
+                        <h4>Devices Owned</h4>
+                        <div class="stat-value">2</div>
+                        <span style="color: #ff007f; font-size: 0.85rem;">Pro Headset X1, Haptic Gloves</span>
+                    </div>
+                    <div class="stat-card accent-3">
+                        <h4>Library Size</h4>
+                        <div class="stat-value">18</div>
+                        <span style="color: #b300ff; font-size: 0.85rem;">Games & Experiences</span>
+                    </div>
+                </div>
+                
+                <h3 style="margin-bottom: 1rem;">Recent Orders</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Item</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-8821</td>
+                            <td>Pro Headset X1</td>
+                            <td>Oct 10, 2026</td>
+                            <td><span class="status-badge status-shipped">Shipped</span></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-7654</td>
+                            <td>Haptic Gloves V2</td>
+                            <td>Sep 05, 2026</td>
+                            <td><span class="status-badge status-active">Delivered</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Recommended Experiences</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(0, 240, 255, 0.2); background: linear-gradient(135deg, rgba(0,240,255,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 0.5rem;">AeroFlight VR</h4>
+                        <span style="color: #00f0ff; font-size: 0.85rem;">Simulation • 4.8★</span>
+                        <div style="margin-top: 1rem;"><a href="404.html" style="color: white; font-size: 0.85rem; text-decoration: underline;">View details</a></div>
+                    </div>
+                    <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(255, 0, 127, 0.2); background: linear-gradient(135deg, rgba(255,0,127,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 0.5rem;">Cyber Beat</h4>
+                        <span style="color: #ff007f; font-size: 0.85rem;">Rhythm Action • 4.9★</span>
+                        <div style="margin-top: 1rem;"><a href="404.html" style="color: white; font-size: 0.85rem; text-decoration: underline;">View details</a></div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Weekly Activity</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: var(--text-light); font-size: 0.9rem;">14 Hours This Week</span>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">+2h from last week</span>
+                    </div>
+                    <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                        <div style="width: 70%; height: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); border-radius: 4px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="devices" class="tab-content" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">Your Registered Devices</h3>
+                <div class="dashboard-cards">
+                    <div class="stat-card accent-1" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2);">
+                        <h4>Pro Headset X1</h4>
+                        <div class="stat-value" style="font-size: 1.5rem; margin: 1rem 0;">Status: Active</div>
+                        <span style="color: #00f0ff;">Warranty until Oct 2028</span>
+                    </div>
+                    <div class="stat-card accent-2" style="background: rgba(255, 0, 127, 0.05); border: 1px solid rgba(255, 0, 127, 0.2);">
+                        <h4>Haptic Gloves V2</h4>
+                        <div class="stat-value" style="font-size: 1.5rem; margin: 1rem 0;">Status: Active</div>
+                        <span style="color: #ff007f;">Battery: 85%</span>
+                    </div>
+                    <div class="stat-card accent-3" style="background: rgba(179, 0, 255, 0.05); border: 1px solid rgba(179, 0, 255, 0.2);">
+                        <h4>Omni Treadmill VR</h4>
+                        <div class="stat-value" style="font-size: 1.5rem; margin: 1rem 0;">Status: Offline</div>
+                        <span style="color: #b300ff;">Last synced: 2 days ago</span>
+                    </div>
+                    <div class="stat-card" style="background: rgba(255, 204, 0, 0.05); border: 1px solid rgba(255, 204, 0, 0.2);">
+                        <h4>VR Haptic Vest</h4>
+                        <div class="stat-value" style="font-size: 1.5rem; margin: 1rem 0;">Status: Active</div>
+                        <span style="color: #ffcc00;">Battery: 92%</span>
+                    </div>
+                    <div class="stat-card" style="background: rgba(50, 255, 100, 0.05); border: 1px solid rgba(50, 255, 100, 0.2);">
+                        <h4>VR Base Station 2.0</h4>
+                        <div class="stat-value" style="font-size: 1.5rem; margin: 1rem 0;">Status: Active</div>
+                        <span style="color: #32ff64;">Firmware up to date</span>
+                    </div>
+                    <div class="stat-card" style="background: rgba(255, 100, 50, 0.05); border: 1px solid rgba(255, 100, 50, 0.2);">
+                        <h4>Full-Body Trackers</h4>
+                        <div class="stat-value" style="font-size: 1.5rem; margin: 1rem 0;">Status: Active</div>
+                        <span style="color: #ff6432;">Battery: 60%</span>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Device Updates</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Pro Headset X1 Firmware v2.4</h4>
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">Improves tracking stability and battery life.</span>
+                        </div>
+                        <button type="button" class="btn" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;" onclick="window.location.href='404.html'">Update Now</button>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Accessories</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(0, 240, 255, 0.2); background: linear-gradient(135deg, rgba(0,240,255,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 1rem;">VR Gun Stock</h4>
+                        <span style="color: #00f0ff; font-size: 0.9rem;">Compatible with Pro Headset X1</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(255, 0, 127, 0.2); background: linear-gradient(135deg, rgba(255,0,127,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 1rem;">Cooling Face Interface</h4>
+                        <span style="color: #ff007f; font-size: 0.9rem;">Improves comfort for long sessions</span>
+                     </div>
+                </div>
+            </div>
+
+            <div id="library" class="tab-content" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">Your VR Library</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">You have 18 games and experiences.</p>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem;">Neon Cyber Run</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">Last played: 2 days ago</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem;">Galaxy Explorer</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">Last played: 1 week ago</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem;">Zen VR Meditation</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">Last played: 2 weeks ago</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem;">Virtual Chef VR</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">Last played: 3 weeks ago</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem;">Deep Sea Diving</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">Last played: 1 month ago</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem;">Escape Room Alpha</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">Last played: 2 months ago</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem;">Skydiving Simulator</h4>
+                        <span style="color: var(--secondary); font-size: 0.9rem;">Last played: 3 months ago</span>
+                     </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Favorites</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(255, 204, 0, 0.2); background: linear-gradient(135deg, rgba(255,204,0,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 1rem;">Beat Saber VR</h4>
+                        <span style="color: #ffcc00; font-size: 0.9rem;">⭐ 50 hours played</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem; border: 1px solid rgba(255, 204, 0, 0.2); background: linear-gradient(135deg, rgba(255,204,0,0.05) 0%, transparent 100%);">
+                        <h4 style="margin-bottom: 1rem;">Superhot VR</h4>
+                        <span style="color: #ffcc00; font-size: 0.9rem;">⭐ 35 hours played</span>
+                     </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Wishlist</h3>
+                <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                     <div class="stat-card" style="padding: 1.5rem; opacity: 0.8; border-style: dashed;">
+                        <h4 style="margin-bottom: 1rem;">Half-Life: Alyx</h4>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">Releasing soon</span>
+                     </div>
+                     <div class="stat-card" style="padding: 1.5rem; opacity: 0.8; border-style: dashed;">
+                        <h4 style="margin-bottom: 1rem;">Boneworks</h4>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">On sale 20% off</span>
+                     </div>
+                </div>
+            </div>
+
+            <div id="profile" class="tab-content" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">Profile Settings</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; display: block;">Full Name</label>
+                        <input type="text" class="form-control" value="Explorer" style="background: rgba(0,0,0,0.2);">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; display: block;">Email Address</label>
+                        <input type="email" class="form-control" value="explorer@vrportal.com" style="background: rgba(0,0,0,0.2);" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address (e.g., example@gmail.com)" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; display: block;">Phone Number</label>
+                        <input type="tel" class="form-control" value="+1 (555) 123-4567" style="background: rgba(0,0,0,0.2);">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; display: block;">Location</label>
+                        <input type="text" class="form-control" value="Neo-Tokyo" style="background: rgba(0,0,0,0.2);">
+                    </div>
+                    <button type="button" class="btn btn-submit" style="width: auto; padding: 0.8rem 2rem; border-radius: 30px;" onclick="window.location.href='404.html'">Save Changes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.dashboard-nav a[data-target]');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const dashboardTitle = document.getElementById('dashboard-title');
+            
+            const titles = {
+                'overview': 'Welcome Back, Explorer',
+                'devices': 'My Devices',
+                'library': 'VR Library',
+                'profile': 'User Profile'
+            };
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        
+                        // Update active nav
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Show target tab
+                        const targetId = this.getAttribute('data-target');
+                        tabContents.forEach(tab => {
+                            if (tab.id === targetId) {
+                                tab.style.display = 'block';
+                            } else {
+                                tab.style.display = 'none';
+                            }
+                        });
+                        
+                        // Update header title dynamically
+                        if (dashboardTitle && titles[targetId]) {
+                            dashboardTitle.textContent = titles[targetId];
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+    <script src="menu.js"></script>
+</body>
+</html>
