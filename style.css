@@ -176,7 +176,7 @@ textarea.form-control { resize: vertical; min-height: 150px; }
 .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-muted); font-size: 0.9rem; }
 
 /* Unique Login Page */
-.login-page { height: 100vh; display: flex; align-items: center; justify-content: center; background: url('vr_bg.png') center/cover no-repeat; position: relative; }
+.login-page { height: 100vh; display: flex; align-items: center; justify-content: center; background: url('vr_bg.webp') center/cover no-repeat; position: relative; }
 .login-page::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(7, 0, 20, 0.8) 0%, rgba(107, 0, 255, 0.4) 100%); backdrop-filter: blur(8px); }
 .login-card {
     background: rgba(15, 0, 30, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);
