@@ -28,9 +28,23 @@
                     <li><a href="#" data-target="users">👥 Users</a></li>
                     <li><a href="#" data-target="orders">📦 Orders</a></li>
                     <li><a href="#" data-target="settings">⚙️ Settings</a></li>
-                    <li style="margin-top: auto;"><a href="login.html" style="color: #ff4d4d;">🚪 Logout</a></li>
+                    <li style="margin-top: auto;"><a href="index.html" style="color: #4da6ff;">⬅️ Back to Home</a></li>
                 </ul>
             </nav>
+            <div class="sidebar-profile" style="display: flex; align-items: center; gap: 10px; padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 10px; flex-shrink: 0;">
+                <div id="profile-initial" style="width: 40px; height: 40px; border-radius: 50%; background: #d4b483; color: #000; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">A</div>
+                <div style="flex-grow: 1; overflow: hidden;">
+                    <div id="profile-name" style="font-weight: 600; font-size: 1rem; color: #fff; word-break: break-all;" title="Admin Panel">Admin Panel</div>
+                    <div id="profile-email" style="font-size: 0.8rem; color: #aaa; word-break: break-all;" title="divyasowndappan190@stackly.vr">divyasowndappan190@stackly.vr</div>
+                </div>
+                <a href="login.html" style="color: #fff; display: flex; align-items: center; transition: color 0.3s; flex-shrink: 0;" onmouseover="this.style.color='#ff4d4d'" onmouseout="this.style.color='#fff'" title="Logout">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                </a>
+            </div>
         </aside>
         
         <main class="dashboard-content">
@@ -118,15 +132,61 @@
                 <h3 style="margin-bottom: 1rem;">User Management</h3>
                 <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
                     <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Manage all registered users on the platform.</p>
-                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                        <input type="text" class="form-control" placeholder="Search users by name or email..." style="flex: 1;">
-                        <button type="button" class="btn btn-submit" style="width: auto; padding: 0.8rem 2rem;" onclick="window.location.href='404.html'">Search</button>
-                    </div>
-                    <!-- Placeholder for full user table -->
-                    <div style="text-align: center; padding: 2rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 10px;">
-                        <i class="fa-solid fa-users" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
-                        <p style="color: var(--text-muted);">User database connected. 12,450 records found.</p>
-                    </div>
+
+                    <table class="table" style="width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <th style="padding: 1rem; color: var(--text-muted);">User ID</th>
+                                <th style="padding: 1rem; color: var(--text-muted);">Name</th>
+                                <th style="padding: 1rem; color: var(--text-muted);">Email</th>
+                                <th style="padding: 1rem; color: var(--text-muted);">Role</th>
+                                <th style="padding: 1rem; color: var(--text-muted);">Status</th>
+                                <th style="padding: 1rem; color: var(--text-muted);">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">#U-8921</td>
+                                <td style="padding: 1rem; font-weight: 600;">Sarah Jenkins</td>
+                                <td style="padding: 1rem;">sarah.j@example.com</td>
+                                <td style="padding: 1rem;">Customer</td>
+                                <td style="padding: 1rem;"><span class="status-badge status-active">Active</span></td>
+                                <td style="padding: 1rem;">
+                                    <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: rgba(255,255,255,0.1); border-radius: 6px;" onclick="window.location.href='404.html'">Edit</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">#U-8922</td>
+                                <td style="padding: 1rem; font-weight: 600;">Mike Ross</td>
+                                <td style="padding: 1rem;">m.ross@law.com</td>
+                                <td style="padding: 1rem;">Customer</td>
+                                <td style="padding: 1rem;"><span class="status-badge status-pending">Pending</span></td>
+                                <td style="padding: 1rem;">
+                                    <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: rgba(255,255,255,0.1); border-radius: 6px;" onclick="window.location.href='404.html'">Edit</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">#U-8923</td>
+                                <td style="padding: 1rem; font-weight: 600;">Alex Chen</td>
+                                <td style="padding: 1rem;">alex.c@tech.io</td>
+                                <td style="padding: 1rem;">Admin</td>
+                                <td style="padding: 1rem;"><span class="status-badge status-active">Active</span></td>
+                                <td style="padding: 1rem;">
+                                    <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: rgba(255,255,255,0.1); border-radius: 6px;" onclick="window.location.href='404.html'">Edit</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">#U-8924</td>
+                                <td style="padding: 1rem; font-weight: 600;">Emma Stone</td>
+                                <td style="padding: 1rem;">emma.s@design.co</td>
+                                <td style="padding: 1rem;">Customer</td>
+                                <td style="padding: 1rem;"><span class="status-badge" style="background: rgba(255, 77, 77, 0.2); color: #ff4d4d; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Banned</span></td>
+                                <td style="padding: 1rem;">
+                                    <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: rgba(255,255,255,0.1); border-radius: 6px;" onclick="window.location.href='404.html'">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">User Demographics</h3>
@@ -228,7 +288,7 @@
                             <h4 style="margin-bottom: 0.5rem;">Payment Gateway API</h4>
                             <span style="color: var(--text-muted); font-size: 0.9rem;">Connected to Stripe Server</span>
                         </div>
-                        <button type="button" class="btn" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;" onclick="window.location.href='404.html'">Revoke Key</button>
+                        <button type="button" class="btn" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: #000; background: #eee; font-weight: 600;" onclick="window.location.href='404.html'">Revoke Key</button>
                     </div>
                 </div>
 
@@ -239,7 +299,7 @@
                             <h4 style="margin-bottom: 0.5rem;">Database Backup</h4>
                             <span style="color: #32ff64; font-size: 0.9rem;">Last backup: 2 hours ago</span>
                         </div>
-                        <button type="button" class="btn" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;" onclick="window.location.href='404.html'">Force Backup</button>
+                        <button type="button" class="btn" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: #000; background: #eee; font-weight: 600;" onclick="window.location.href='404.html'">Force Backup</button>
                     </div>
                 </div>
             </div>
@@ -290,5 +350,21 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ duration: 800, once: true });</script>
     <script src="menu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                const emailElem = document.getElementById('profile-email');
+                const nameElem = document.getElementById('profile-name');
+                const initElem = document.getElementById('profile-initial');
+                emailElem.textContent = userEmail;
+                emailElem.title = userEmail;
+                const name = userEmail.split('@')[0];
+                nameElem.textContent = name;
+                nameElem.title = name;
+                initElem.textContent = name.charAt(0).toUpperCase();
+            }
+        });
+    </script>
 </body>
 </html>

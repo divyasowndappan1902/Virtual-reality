@@ -25,7 +25,7 @@
 
 
 
-        <form id="auth-form" action="customer_dashboard.html">
+        <form id="auth-form" action="customer_dashboard.html" onsubmit="localStorage.setItem('userEmail', document.getElementById('login-email').value); return true;">
             <div class="role-selector">
                 <input type="radio" name="role" id="role-customer" value="customer" checked>
                 <label for="role-customer" onclick="document.getElementById('auth-form').action='customer_dashboard.html'">Customer</label>
@@ -35,10 +35,11 @@
             </div>
 
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address (e.g., example@gmail.com)" required>
+                <input type="email" id="login-email" class="form-control" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address (e.g., example@gmail.com)" required>
             </div>
-            <div class="form-group" style="margin-bottom: 1rem;">
-                <input type="password" class="form-control" placeholder="Password" required>
+            <div class="form-group" style="margin-bottom: 1rem; position: relative;">
+                <input type="password" class="form-control" placeholder="Password" required style="padding-right: 40px;">
+                <i class="fa-solid fa-eye" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" onclick="const input = this.previousElementSibling; if(input.type === 'password') { input.type = 'text'; this.classList.remove('fa-eye'); this.classList.add('fa-eye-slash'); } else { input.type = 'password'; this.classList.remove('fa-eye-slash'); this.classList.add('fa-eye'); }"></i>
             </div>
             
             <div class="login-options">
@@ -65,8 +66,7 @@
         </div>
     </div>
 
-        // Form submits natively
-    </script>
+
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ duration: 800, once: true });</script>

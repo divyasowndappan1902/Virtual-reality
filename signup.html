@@ -45,11 +45,13 @@
             <div class="form-group" style="margin-bottom: 1.2rem;">
                 <input type="email" class="form-control" placeholder="Email address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address (e.g., example@gmail.com)" required style="border-radius: 8px; padding: 1rem;">
             </div>
-            <div class="form-group" style="margin-bottom: 1.2rem;">
-                <input type="password" class="form-control" placeholder="Password" required style="border-radius: 8px; padding: 1rem;">
+            <div class="form-group" style="margin-bottom: 1.2rem; position: relative;">
+                <input type="password" class="form-control" placeholder="Password" required style="border-radius: 8px; padding: 1rem; padding-right: 45px;">
+                <i class="fa-solid fa-eye" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" onclick="const input = this.previousElementSibling; if(input.type === 'password') { input.type = 'text'; this.classList.remove('fa-eye'); this.classList.add('fa-eye-slash'); } else { input.type = 'password'; this.classList.remove('fa-eye-slash'); this.classList.add('fa-eye'); }"></i>
             </div>
-            <div class="form-group" style="margin-bottom: 2rem;">
-                <input type="password" class="form-control" placeholder="Confirm Password" required style="border-radius: 8px; padding: 1rem;">
+            <div class="form-group" style="margin-bottom: 2rem; position: relative;">
+                <input type="password" class="form-control" placeholder="Confirm Password" required style="border-radius: 8px; padding: 1rem; padding-right: 45px;">
+                <i class="fa-solid fa-eye" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" onclick="const input = this.previousElementSibling; if(input.type === 'password') { input.type = 'text'; this.classList.remove('fa-eye'); this.classList.add('fa-eye-slash'); } else { input.type = 'password'; this.classList.remove('fa-eye-slash'); this.classList.add('fa-eye'); }"></i>
             </div>
 
             <button type="submit" class="btn btn-submit" style="background: linear-gradient(90deg, var(--secondary), var(--primary)); border: none; font-weight: 700; border-radius: 8px; color: white; box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4); padding: 1.2rem; cursor: pointer;">Sign Up</button>
