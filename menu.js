@@ -20,21 +20,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Dashboard hamburger
-    const dashHamburger = document.querySelector('.dashboard-hamburger');
-    const dashNav = document.querySelector('.dashboard-nav');
+    // Dashboard mobile drawer
+    const mobileDashHamburger = document.querySelector('.mobile-dash-hamburger');
+    const dashSidebar = document.querySelector('.dashboard-sidebar');
     
-    if (dashHamburger && dashNav) {
-        dashHamburger.addEventListener('click', () => {
-            dashHamburger.classList.toggle('active');
-            dashNav.classList.toggle('active');
+    if (mobileDashHamburger && dashSidebar) {
+        // Toggle drawer
+        mobileDashHamburger.addEventListener('click', (e) => {
+            mobileDashHamburger.classList.toggle('active');
+            dashSidebar.classList.toggle('active');
+            e.stopPropagation();
         });
         
+        // Close drawer when clicking a link
         document.querySelectorAll('.dashboard-nav a').forEach(link => {
             link.addEventListener('click', () => {
-                dashHamburger.classList.remove('active');
-                dashNav.classList.remove('active');
+                mobileDashHamburger.classList.remove('active');
+                dashSidebar.classList.remove('active');
             });
+        });
+        
+        // Close drawer when clicking outside
+        document.addEventListener('click', (e) => {
+            if (dashSidebar.classList.contains('active') && !dashSidebar.contains(e.target) && !mobileDashHamburger.contains(e.target)) {
+                mobileDashHamburger.classList.remove('active');
+                dashSidebar.classList.remove('active');
+            }
         });
     }
 });

@@ -1,3 +1,8 @@
+html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
 :root {
     --primary: #c300ff; /* Purple gradient color */
     --secondary: #ff007f; /* Pink gradient color */
@@ -35,9 +40,21 @@ body::before {
 }
 
 /* Header & Navigation */
+body:has(> .navbar) {
+    padding-top: 88px;
+}
+
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1.5rem 6%; position: relative; z-index: 10;
+    padding: 1.5rem 6%; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(7, 0, 20, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 .navbar::after {
     content: ''; position: absolute; bottom: -1px; left: 5%; width: 90%; height: 1px;
@@ -211,7 +228,7 @@ textarea.form-control { resize: vertical; min-height: 150px; }
 .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-muted); font-size: 0.9rem; }
 
 /* Unique Login Page */
-.login-page { height: 100vh; display: flex; align-items: center; justify-content: center; background: url('vr_bg.webp') center/cover no-repeat; position: relative; }
+.login-page { min-height: 100vh; padding: 2rem 1rem; display: flex; align-items: center; justify-content: center; background: url('vr_bg.webp') center/cover no-repeat; position: relative; }
 .login-page::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(7, 0, 20, 0.8) 0%, rgba(107, 0, 255, 0.4) 100%); backdrop-filter: blur(8px); }
 .login-card {
     background: rgba(15, 0, 30, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);
@@ -500,6 +517,8 @@ textarea.form-control { resize: vertical; min-height: 150px; }
    COMPREHENSIVE RESPONSIVE ADJUSTMENTS
    ========================================= */
 
+.mobile-dash-header { display: none; }
+
 /* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
     .section { padding: 4rem 4%; }
@@ -512,20 +531,48 @@ textarea.form-control { resize: vertical; min-height: 150px; }
     
     /* Dashboard Specific */
     .dashboard-layout { flex-direction: column; }
-    .dashboard-sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; flex-direction: column; align-items: flex-start; justify-content: flex-start; }
-    .dashboard-sidebar-header { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-    .dashboard-sidebar-header .logo { margin-bottom: 0 !important; }
-    .dashboard-hamburger { display: flex; }
     
-    .dashboard-nav { display: none; width: 100%; margin-top: 1.5rem; }
-    .dashboard-nav.active { display: block; }
-    .sidebar-profile { display: none !important; }
-    .dashboard-nav ul { flex-direction: column; overflow-x: visible; gap: 0.5rem; width: 100%; padding-bottom: 0.5rem; }
-    .dashboard-nav a { white-space: normal; padding: 0.8rem 1rem; }
+    .mobile-dash-header { 
+        position: sticky;
+        top: 0;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 1rem 1.5rem; 
+        border-bottom: 1px solid rgba(255,255,255,0.05); 
+        background-color: var(--bg-dark); 
+        z-index: 900; 
+    }
+    .mobile-dash-hamburger { display: flex; }
     
-    .dashboard-hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .dashboard-hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .dashboard-hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .dashboard-sidebar { 
+        position: fixed; 
+        top: 0; 
+        left: -300px; 
+        width: 280px; 
+        height: 100vh; 
+        z-index: 1000; 
+        background-color: var(--bg-dark); 
+        border-right: 1px solid rgba(255,255,255,0.05); 
+        padding: 2rem; 
+        transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+        display: flex;
+        flex-direction: column;
+    }
+    .dashboard-sidebar.active { left: 0; box-shadow: 20px 0 50px rgba(0,0,0,0.5); }
+    
+    .dashboard-sidebar-header { display: flex; justify-content: flex-start; align-items: center; width: 100%; margin-bottom: 2rem; }
+    .dashboard-hamburger { display: none !important; }
+    
+    .dashboard-nav { display: flex; flex-grow: 1; margin-top: 0; }
+    .dashboard-nav ul { flex-direction: column; width: 100%; gap: 0.5rem; }
+    .dashboard-nav a { white-space: normal; }
+    
+    .sidebar-profile { display: flex !important; margin-top: auto; }
+    
+    .mobile-dash-hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .mobile-dash-hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .mobile-dash-hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 }
 
 /* Mobile (max-width: 768px) */
@@ -576,7 +623,12 @@ textarea.form-control { resize: vertical; min-height: 150px; }
     
     /* Tables */
     .data-table { display: block; overflow-x: auto; white-space: nowrap; width: 100%; }
+    
+    /* Dashboard Inner Layout */
     .dashboard-content { padding: 1.5rem; }
+    .dashboard-content .tab-content > div[style*="padding: 2rem"] { padding: 1.25rem !important; } /* Prevent padding from squishing content on small screens */
+    .dashboard-content div[style*="display: flex"] { flex-wrap: wrap; } /* Ensure search bars wrap cleanly */
+    
     .dashboard-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .dashboard-header h2 { font-size: 1.8rem; }
 }
@@ -608,6 +660,7 @@ textarea.form-control { resize: vertical; min-height: 150px; }
     .login-header h2 { font-size: 1.5rem; }
     .footer-grid { gap: 1.5rem; }
     .dashboard-content { padding: 1rem; }
+    body:has(> .navbar) { padding-top: 62px; }
 }
 
 body.no-scroll {

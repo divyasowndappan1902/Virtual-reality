@@ -11,6 +11,16 @@
 </head>
 <body>
     <div class="dashboard-layout">
+        <div class="mobile-dash-header">
+            <a href="index.html" class="logo">
+                <img src="logo.webp" alt="STACKLY Logo" style="height: 35px; width: auto;">
+            </a>
+            <div class="hamburger mobile-dash-hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
         <aside class="dashboard-sidebar">
             <div class="dashboard-sidebar-header">
                 <a href="index.html" class="logo" style="margin-bottom: 2rem;">
@@ -129,11 +139,10 @@
             </div>
 
             <div id="users" class="tab-content" style="display: none;">
-                <h3 style="margin-bottom: 1rem;">User Management</h3>
                 <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
                     <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Manage all registered users on the platform.</p>
 
-                    <table class="table" style="width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem;">
+                    <table class="data-table" style="width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem;">
                         <thead>
                             <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
                                 <th style="padding: 1rem; color: var(--text-muted);">User ID</th>
@@ -207,7 +216,6 @@
             </div>
 
             <div id="orders" class="tab-content" style="display: none;">
-                <h3 style="margin-bottom: 1rem;">Hardware Orders</h3>
                 <div class="dashboard-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 2rem;">
                      <div class="stat-card" style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 0.5rem; color: var(--text-muted);">Pending Orders</h4>
@@ -261,7 +269,6 @@
             </div>
 
             <div id="settings" class="tab-content" style="display: none;">
-                <h3 style="margin-bottom: 1rem;">Platform Settings</h3>
                 <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; display: block;">Maintenance Mode</label>
